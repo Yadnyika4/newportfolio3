@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Yadnyika Patil - Electronics and Computer Science student portfolio, showcasing projects, achievements, and skills from Mumbai University."
+    />
+    <meta name="author" content="Yadnyika Patil" />
+    <meta property="og:title" content="Yadnyika Patil | Portfolio" />
+    <meta property="og:image" content="https://yourwebsite.com/profile.jpg" />
+    <meta
+      property="og:description"
+      content="Personal introduction portfolio site by Yadnyika Patil, highlighting academic and technical expertise."
+    />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yadnyika Patil | Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Electronics and Computer Science student portfolio by Yadnyika Patil."
+    />
+    <meta name="twitter:image" content="https://yourwebsite.com/profile.jpg" />
+    <meta name="theme-color" content="#e0f2f7" />
+    <link rel="icon" href="images.jpg" type="image/x-icon" />
+    <title>Yadnyika Patil | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Enable dark mode toggle support
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+              roboto: ["Roboto", "sans-serif"],
+            },
+            colors: {
+              // Primary: A vibrant blue-green for main accents, headers
+              "vibrant-blue": {
+                50: "#e0f2f7",
+                100: "#b2e2ec",
+                200: "#84d2e1",
+                300: "#56c2d6",
+                400: "#28b2cb",
+                500: "#00a3c0", // Main primary blue
+                600: "#008ba3",
+                700: "#007287",
+                800: "#00596a",
+                900: "#00404d",
+              },
+              // Secondary: A lively coral/orange for highlights and calls to action
+              "vibrant-coral": {
+                50: "#fff1ed",
+                100: "#ffe0d2",
+                200: "#ffc6b5",
+                300: "#ffa193",
+                400: "#ff7771",
+                500: "#ff4d4d", // Main secondary coral
+                600: "#e64545",
+                700: "#cc3d3d",
+                800: "#b33636",
+                900: "#992e2e",
+              },
+              // Neutral: Soft grays for backgrounds and text, with good contrast
+              "soft-neutral": {
+                50: "#fcfcfc",
+                100: "#f5f5f5",
+                200: "#ededed",
+                300: "#e0e0e0",
+                400: "#bdbdbd",
+                500: "#9e9e9e",
+                600: "#757575",
+                700: "#616161",
+                800: "#424242",
+                900: "#212121",
+              },
+            },
+          },
+        },
+      };
+
+      // JavaScript for hamburger menu toggle
+      function toggleMenu() {
+        const navLinks = document.getElementById("nav-links");
+        navLinks.classList.toggle("hidden");
+        // Also toggle the dark mode button on small screens
+        const darkModeToggleSmall = document.getElementById(
+          "dark-mode-toggle-small"
+        );
+        darkModeToggleSmall.classList.toggle("hidden");
+      }
+
+      // Scroll-to-top button logic
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        const mybutton = document.getElementById("scrollToTopBtn");
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.classList.remove("hidden");
+        } else {
+          mybutton.classList.add("hidden");
+        }
+      }
+
+      function topFunction() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Preloader/Loading animation (optional, for demonstration)
+      window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+          preloader.style.display = "none"; // Hide preloader once content is loaded
+        }
+      });
+    </script>
+    <style>
+      /* Simple preloader styles */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff; /* or dark: #1a202c */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      .spinner {
+        border: 8px solid #f3f3f3; /* Light grey */
+        border-top: 8px solid #28b2cb; /* Using vibrant blue */
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Custom CSS for hover effects on cards/sections */
+      section.shadow-md {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      section.shadow-md:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      a.text-vibrant-blue-600 {
+        transition: color 0.3s ease-in-out;
+      }
+      a.text-vibrant-blue-600:hover {
+        color: #008ba3; /* Darker vibrant blue on hover for external links */
+      }
+      /* Hover for buttons */
+      button.bg-vibrant-blue-600 {
+        transition: background-color 0.3s ease-in-out,
+          transform 0.2s ease-in-out;
+      }
+      button.bg-vibrant-blue-600:hover {
+        background-color: #008ba3; /* Darker vibrant blue */
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-soft-neutral-100 dark:bg-soft-neutral-900 text-soft-neutral-800 dark:text-soft-neutral-100 transition-colors font-roboto"
+  >
+    <div id="preloader">
+      <div class="spinner"></div>
+    </div>
+
+    <header
+      class="bg-gradient-to-r from-vibrant-blue-500 to-vibrant-blue-700 dark:from-vibrant-blue-800 dark:to-vibrant-blue-900 text-white py-8 shadow-lg"
+    >
+      <div
+        class="max-w-4xl mx-auto flex flex-col items-center px-6 md:px-0 relative"
+      >
+        <button
+          class="md:hidden absolute top-0 right-0 m-4 text-white focus:outline-none"
+          onclick="toggleMenu()"
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+
+        <div class="text-center mb-6">
+          <h1 class="text-4xl font-poppins font-bold">Yadnyika Patil</h1>
+          <p class="mt-2 font-poppins text-vibrant-blue-100">
+            Electronics and Computer Science | Mumbai University
+          </p>
+        </div>
+
+        <nav
+          id="nav-links"
+          class="hidden md:flex flex-col md:flex-row mt-4 md:mt-0 space-y-2 md:space-y-0 md:space-x-6 text-lg items-center w-full md:w-auto font-poppins"
+          aria-label="Main navigation"
+        >
+          <a href="#about" class="hover:text-vibrant-blue-200">About</a>
+          <a href="#achievements" class="hover:text-vibrant-blue-200"
+            >Achievements</a
+          >
+          <a href="#projects" class="hover:text-vibrant-blue-200">Projects</a>
+          <a href="#certifications" class="hover:text-vibrant-blue-200"
+            >Certifications</a
+          >
+          <a href="#skills" class="hover:text-vibrant-blue-200">Skills</a>
+          <a href="#contact" class="hover:text-vibrant-blue-200">Contact</a>
+          <button
+            onclick="document.body.classList.toggle('dark')"
+            class="hidden md:block px-4 py-2 bg-vibrant-blue-600 text-white rounded shadow mt-4 md:mt-0 hover:bg-vibrant-blue-700 active:bg-vibrant-blue-800 transition-colors duration-300"
+            aria-label="Toggle dark mode"
+          >
+            Toggle Dark Mode
+          </button>
+        </nav>
+        <div id="dark-mode-toggle-small" class="hidden mt-4 w-full md:hidden">
+          <button
+            onclick="document.body.classList.toggle('dark')"
+            class="px-4 py-2 bg-vibrant-blue-600 text-white rounded shadow w-full hover:bg-vibrant-blue-700 active:bg-vibrant-blue-800 transition-colors duration-300"
+            aria-label="Toggle dark mode"
+          >
+            Toggle Dark Mode
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-center">
+        <img
+          src="profile.jpg"
+          alt="Yadnyika Patil's professional portrait"
+          class="w-32 h-32 rounded-full border-4 border-vibrant-blue-100 dark:border-vibrant-blue-700 shadow-lg object-cover"
+          loading="lazy"
+        />
+      </div>
+    </header>
+
+    <main
+      class="max-w-4xl mx-auto my-10 p-6 bg-white dark:bg-soft-neutral-800 rounded-lg shadow-xl"
+    >
+      <section
+        class="mb-10 bg-soft-neutral-200 dark:bg-soft-neutral-700 rounded-lg p-6 shadow-md"
+      >
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-2xl font-poppins font-semibold mb-4"
+        >
+          Introduction Video
+        </h2>
+        <video
+          class="w-full rounded shadow"
+          controls
+          loading="lazy"
+          poster="video_poster.jpg"
+        >
+          <source src="intro.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section
+        id="about"
+        class="mb-10 p-6 bg-vibrant-coral-50 dark:bg-vibrant-coral-900 rounded-lg shadow-md"
+      >
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-3xl font-poppins font-semibold border-b-2 border-vibrant-blue-500 pb-2 mb-4"
+        >
+          About Me
+        </h2>
+        <p class="mb-2">
+          <strong class="font-semibold">Name:</strong> Yadnyika Patil
+        </p>
+        <p class="mb-2">
+          <strong class="font-semibold">Location:</strong> Palghar
+        </p>
+        <p class="mb-2">
+          <strong class="font-semibold">Education:</strong> Electronics and
+          Computer Science, Mumbai University
+        </p>
+        <p class="mb-2">
+          <strong class="font-semibold">Languages Known:</strong> English,
+          Hindi, Marathi
+        </p>
+      </section>
+
+      <section
+        id="achievements"
+        class="mb-10 p-6 bg-soft-neutral-100 dark:bg-soft-neutral-800 rounded-lg shadow-md"
+      >
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-3xl font-poppins font-semibold border-b-2 border-vibrant-blue-500 pb-2 mb-4"
+        >
+          Achievements
+        </h2>
+        <ul class="list-disc pl-5">
+          <li>Currently in Second Year of Engineering</li>
+          <li>Completed courses on Unix and VLSI Trends</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="mb-10">
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-3xl font-poppins font-semibold border-b-2 border-vibrant-blue-500 pb-2 mb-6"
+        >
+          Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="bg-white dark:bg-soft-neutral-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          >
+            <h3
+              class="text-xl font-poppins font-semibold text-vibrant-blue-600 mb-2"
+            >
+              Heart Rate Monitoring System
+            </h3>
+            <p class="text-soft-neutral-600 dark:text-soft-neutral-300 mb-4">
+              Built a real-time heart rate monitoring system using ESP8266,
+              pulse sensor, and OLED. Data logging implemented on ThingSpeak for
+              remote monitoring.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span
+                class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold"
+                >Arduino IDE</span
+              >
+              <span
+                class="inline-block bg-vibrant-coral-100 text-vibrant-coral-800 dark:bg-vibrant-coral-900 dark:text-vibrant-coral-300 px-3 py-1 rounded-full text-sm font-semibold"
+                >ESP8266</span
+              >
+              <span
+                class="inline-block bg-soft-neutral-200 text-soft-neutral-800 dark:bg-soft-neutral-600 dark:text-soft-neutral-200 px-3 py-1 rounded-full text-sm font-semibold"
+                >Pulse Sensor</span
+              >
+              <span
+                class="inline-block bg-soft-neutral-200 text-soft-neutral-800 dark:bg-soft-neutral-600 dark:text-soft-neutral-200 px-3 py-1 rounded-full text-sm font-semibold"
+                >OLED</span
+              >
+              <span
+                class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold"
+                >ThingSpeak</span
+              >
+            </div>
+            <a
+              href="#"
+              class="inline-flex items-center text-vibrant-blue-600 hover:text-vibrant-blue-800 dark:text-vibrant-blue-300 dark:hover:text-vibrant-blue-200 font-medium transition-colors duration-300"
+            >
+              Learn More
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                ></path>
+              </svg>
+            </a>
+          </div>
+
+          <div
+            class="bg-white dark:bg-soft-neutral-700 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          >
+            <h3
+              class="text-xl font-poppins font-semibold text-vibrant-blue-600 mb-2"
+            >
+              Another Cool Project
+            </h3>
+            <p class="text-soft-neutral-600 dark:text-soft-neutral-300 mb-4">
+              A brief description of your second project. Highlight the key
+              technologies and what you achieved.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span
+                class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold"
+                >Technology 1</span
+              >
+              <span
+                class="inline-block bg-vibrant-coral-100 text-vibrant-coral-800 dark:bg-vibrant-coral-900 dark:text-vibrant-coral-300 px-3 py-1 rounded-full text-sm font-semibold"
+                >Technology 2</span
+              >
+            </div>
+            <a
+              href="#"
+              class="inline-flex items-center text-vibrant-blue-600 hover:text-vibrant-blue-800 dark:text-vibrant-blue-300 dark:hover:text-vibrant-blue-200 font-medium transition-colors duration-300"
+            >
+              Learn More
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="certifications"
+        class="mb-10 p-6 bg-soft-neutral-100 dark:bg-soft-neutral-800 rounded-lg shadow-md"
+      >
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-3xl font-poppins font-semibold border-b-2 border-vibrant-blue-500 pb-2 mb-4"
+        >
+          Certifications
+        </h2>
+        <ul class="list-disc pl-5">
+          <li>Innovative Trends in VLSI and Semiconductor Engineering</li>
+          <li>Introduction to Unix</li>
+        </ul>
+      </section>
+
+      <section id="skills" class="mb-10">
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-3xl font-poppins font-semibold border-b-2 border-vibrant-blue-500 pb-2 mb-6"
+        >
+          Technical Skills
+        </h2>
+        <div class="flex flex-wrap gap-3">
+          <span
+            class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-blue-200 dark:hover:bg-vibrant-blue-800 transition-colors duration-200"
+            >C</span
+          >
+          <span
+            class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-blue-200 dark:hover:bg-vibrant-blue-800 transition-colors duration-200"
+            >C++</span
+          >
+          <span
+            class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-blue-200 dark:hover:bg-vibrant-blue-800 transition-colors duration-200"
+            >Python</span
+          >
+          <span
+            class="inline-block bg-vibrant-coral-100 text-vibrant-coral-800 dark:bg-vibrant-coral-900 dark:text-vibrant-coral-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-coral-200 dark:hover:bg-vibrant-coral-800 transition-colors duration-200"
+            >Arduino IDE</span
+          >
+          <span
+            class="inline-block bg-soft-neutral-200 text-soft-neutral-800 dark:bg-soft-neutral-600 dark:text-soft-neutral-200 px-3 py-1 rounded-full text-sm font-semibold hover:bg-soft-neutral-300 dark:hover:bg-soft-neutral-700 transition-colors duration-200"
+            >MATLAB</span
+          >
+          <span
+            class="inline-block bg-vibrant-coral-100 text-vibrant-coral-800 dark:bg-vibrant-coral-900 dark:text-vibrant-coral-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-coral-200 dark:hover:bg-vibrant-coral-800 transition-colors duration-200"
+            >Arduino</span
+          >
+          <span
+            class="inline-block bg-vibrant-coral-100 text-vibrant-coral-800 dark:bg-vibrant-coral-900 dark:text-vibrant-coral-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-coral-200 dark:hover:bg-vibrant-coral-800 transition-colors duration-200"
+            >ESP8266</span
+          >
+          <span
+            class="inline-block bg-soft-neutral-200 text-soft-neutral-800 dark:bg-soft-neutral-600 dark:text-soft-neutral-200 px-3 py-1 rounded-full text-sm font-semibold hover:bg-soft-neutral-300 dark:hover:bg-soft-neutral-700 transition-colors duration-200"
+            >Pulse Sensor</span
+          >
+          <span
+            class="inline-block bg-soft-neutral-200 text-soft-neutral-800 dark:bg-soft-neutral-600 dark:text-soft-neutral-200 px-3 py-1 rounded-full text-sm font-semibold hover:bg-soft-neutral-300 dark:hover:bg-soft-neutral-700 transition-colors duration-200"
+            >DHT11</span
+          >
+          <span
+            class="inline-block bg-soft-neutral-200 text-soft-neutral-800 dark:bg-soft-neutral-600 dark:text-soft-neutral-200 px-3 py-1 rounded-full text-sm font-semibold hover:bg-soft-neutral-300 dark:hover:bg-soft-neutral-700 transition-colors duration-200"
+            >OLED</span
+          >
+          <span
+            class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-blue-200 dark:hover:bg-vibrant-blue-800 transition-colors duration-200"
+            >ThingSpeak</span
+          >
+          <span
+            class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-blue-200 dark:hover:bg-vibrant-blue-800 transition-colors duration-200"
+            >Blynk</span
+          >
+          <span
+            class="inline-block bg-vibrant-blue-100 text-vibrant-blue-800 dark:bg-vibrant-blue-900 dark:text-vibrant-blue-300 px-3 py-1 rounded-full text-sm font-semibold hover:bg-vibrant-blue-200 dark:hover:bg-vibrant-blue-800 transition-colors duration-200"
+            >MQTT</span
+          >
+        </div>
+      </section>
+
+      <section
+        class="mb-10 p-6 bg-soft-neutral-100 dark:bg-soft-neutral-800 rounded-lg shadow-md"
+      >
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-3xl font-poppins font-semibold border-b-2 border-vibrant-blue-500 pb-2 mb-4"
+        >
+          Future Goals
+        </h2>
+        <p>
+          I aim to contribute to embedded systems and IoT, especially in health
+          tech. I'm interested in blending real-time sensors with data science
+          for impactful innovations.
+        </p>
+      </section>
+
+      <section
+        class="mb-10 p-6 bg-soft-neutral-100 dark:bg-soft-neutral-800 rounded-lg shadow-md"
+      >
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-3xl font-poppins font-semibold border-b-2 border-vibrant-blue-500 pb-2 mb-4"
+        >
+          Personal Side
+        </h2>
+        <p class="mb-2">
+          <strong class="font-semibold">Hobbies:</strong> Exploring new places,
+          graphic design, cooking, painting
+        </p>
+        <p class="mb-2">
+          <strong class="font-semibold">Role Models:</strong> I admire role
+          models who inspire creativity and service to others.
+        </p>
+        <p class="mb-2">
+          <strong class="font-semibold"
+            >Favorite Books/Websites/Startups:</strong
+          >
+          I love learning from tech sites and startups working on smart
+          healthcare.
+        </p>
+        <p class="mb-2">
+          <strong class="font-semibold">Volunteering Experience:</strong>
+          Involved in student groups and event management.
+        </p>
+      </section>
+
+      <section
+        id="contact"
+        class="mb-10 p-6 bg-soft-neutral-100 dark:bg-soft-neutral-800 rounded-lg shadow-md"
+      >
+        <h2
+          class="text-vibrant-blue-700 dark:text-vibrant-blue-300 text-3xl font-poppins font-semibold border-b-2 border-vibrant-blue-500 pb-2 mb-4"
+        >
+          Contact Me
+        </h2>
+        <p class="mb-2">
+          <strong class="font-semibold">Phone:</strong>
+          <a
+            href="tel:+918591891956"
+            class="text-vibrant-blue-600 dark:text-vibrant-blue-300 hover:underline"
+            >+91 8591891956</a
+          >
+        </p>
+        <p class="mb-2">
+          <strong class="font-semibold">WhatsApp:</strong>
+          <a
+            href="https://wa.me/918591891956"
+            class="text-vibrant-blue-600 dark:text-vibrant-blue-300 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Chat on WhatsApp</a
+          >
+        </p>
+        <p class="mb-2">
+          <strong class="font-semibold">Email:</strong>
+          <a
+            href="mailto:patilyadnyika@gmail.com"
+            class="text-vibrant-blue-600 dark:text-vibrant-blue-300 hover:underline"
+            >patilyadnyika@gmail.com</a
+          >
+        </p>
+
+        <div class="my-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60370.28078626714!2d72.7415051!3d19.6965896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be721c124c6b1ff%3A0x28f1a4ad9e158946!2sPalghar%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1716199192234!5m2!1sen!2sin"
+            width="100%"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Location of Yadnyika Patil"
+          ></iframe>
+        </div>
+
+        <p class="mb-2"><strong class="font-semibold">Social Media:</strong></p>
+        <ul class="list-disc pl-5">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/YadnyikaPatil"
+              class="text-vibrant-blue-600 dark:text-vibrant-blue-300 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/yourprofile"
+              class="text-vibrant-blue-600 dark:text-vibrant-blue-300 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Twitter</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/Yadnyika4"
+              class="text-vibrant-blue-600 dark:text-vibrant-blue-300 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+
+        <form
+          action="https://formspree.io/f/yourformid"
+          method="POST"
+          class="mt-6 space-y-4"
+        >
+          <div>
+            <label
+              for="name"
+              class="block text-sm font-medium text-soft-neutral-800 dark:text-soft-neutral-200 font-roboto"
+              >Name</label
+            >
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="w-full p-2 bg-soft-neutral-50 dark:bg-soft-neutral-700 border border-vibrant-blue-300 rounded-md text-soft-neutral-900 dark:text-soft-neutral-100 font-roboto focus:ring-vibrant-blue-500 focus:border-vibrant-blue-500"
+              aria-label="Your Name"
+              required
+            />
+          </div>
+          <div>
+            <label
+              for="Email"
+              class="block text-sm font-medium text-soft-neutral-800 dark:text-soft-neutral-200 font-roboto"
+              >Email</label
+            >
+            <input
+              type="email"
+              name="Email"
+              id="Email"
+              class="w-full p-2 bg-soft-neutral-50 dark:bg-soft-neutral-700 border border-vibrant-blue-300 rounded-md text-soft-neutral-900 dark:text-soft-neutral-100 font-roboto focus:ring-vibrant-blue-500 focus:border-vibrant-blue-500"
+              aria-label="Your Email"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="px-6 py-3 bg-vibrant-coral-500 text-white rounded-lg shadow-md hover:bg-vibrant-coral-600 focus:outline-none focus:ring-2 focus:ring-vibrant-coral-400 focus:ring-opacity-75 font-poppins font-medium text-lg transition-all duration-300"
+          >
+            Send Message
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <button
+      onclick="topFunction()"
+      id="scrollToTopBtn"
+      class="hidden fixed bottom-6 right-6 bg-vibrant-blue-500 hover:bg-vibrant-blue-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-vibrant-blue-400 focus:ring-opacity-75"
+      title="Go to top"
+      aria-label="Scroll to top"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M7 11l5-5m0 0l5 5m-5-5v12"
+        ></path>
+      </svg>
+    </button>
+  </body>
+</html>
+
+
